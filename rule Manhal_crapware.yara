@@ -12,5 +12,5 @@ rule Suspected_Malware {
         $s4 = "rawurldecode"
 
 condition:
-          all of them
+       all of them and  filesize < 32KB
 }

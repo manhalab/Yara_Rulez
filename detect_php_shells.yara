@@ -10,7 +10,8 @@ rule Suspected_PHP_shell_Malware {
         $s1 = "base64_decode"
         $s2 = "shell" nocase
         $s3 = "<?php" nocase
+        $f4 = "composer.phar" nocase
 
 condition:
-        all of them and #s1 > 2
+        (not $f4) and all of ($s*) and #s1 > 2
 }
